@@ -12,6 +12,10 @@
 На текущий момент Clickhouse используется однонодовый, вторая нода для реплики.
 
 ## Установка
-ВМ в яндекс облако
+ВМ в яндекс облаке:
+
 <img width="616" height="838" alt="image" src="https://github.com/user-attachments/assets/62cc20db-9368-4ada-9b54-828c18a19a83" />
 
+Запущенный Clickhouse
+
+<img width="1510" height="364" alt="image" src="https://github.com/user-attachments/assets/fb4fe30d-39cd-4bc3-a21a-5e8029d78f23" />
