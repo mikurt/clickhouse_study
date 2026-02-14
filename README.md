@@ -32,3 +32,13 @@
 
 <img width="497" height="335" alt="image" src="https://github.com/user-attachments/assets/252cfa65-3386-4717-a328-0b84f578fdc6" />
 
+## Тестирование производительности
+
+Тестирую запросом *clickhouse-benchmark --concurrency 10 --timelimit 60 <<< "SELECT pickup_ntaname, count(distinct dropoff_ntaname), sum(passenger_count),     avg(trip_distance),     avg(fare_amount),    avg(tip_amount),    avg(tolls_amount),    avg(total_amount),    max(payment_type) from trips group by pickup_ntaname"*
+
+Результат при начальной настройке:
+
+<img width="1103" height="441" alt="image" src="https://github.com/user-attachments/assets/f8da80bc-e83d-4da8-a99d-659a1b0ca1ed" />
+
+
+
