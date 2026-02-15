@@ -61,7 +61,7 @@
 - Буфер меток хранит индексы в памяти. Для 16 ГБ RAM 5 ГБ:
 ```
     <mark_cache_size>5368709120</mark_cache_size>
-``
+```
 
 - Буфер несжатых данных ускоряет повторные запросы к одним и тем же колонкам:
 ```
@@ -89,5 +89,25 @@
         </case>
     </compression>
 ```
+### users.d/x_users.xml
 
-
+- Максимум потоков по числу ядер:
+```
+            <max_threads>4</max_threads>
+```
+- Максимум потоков для вставки
+```
+            <max_insert_threads>2</max_insert_threads>
+```
+- Сбрасывать данные на диск, если не хватает RAM для GROUP BY:
+```
+            <max_bytes_before_external_group_by>13000000000</max_bytes_before_external_group_by>
+```
+- Сбрасывать на диск для SORT:
+```
+            <max_bytes_before_external_sort>13000000000</max_bytes_before_external_sort>
+```
+- Не давать одному потоку резервировать слишком много памяти:
+```
+            <memory_usage_overcommit_ratio_denominator>10</memory_usage_overcommit_ratio_denominator>
+```
