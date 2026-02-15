@@ -38,9 +38,9 @@
 
 Результат при начальной настройке:
 
-<img width="1103" height="441" alt="image" src="https://github.com/user-attachments/assets/f8da80bc-e83d-4da8-a99d-659a1b0ca1ed" />
-
 <img width="1091" height="401" alt="image" src="https://github.com/user-attachments/assets/40349ea9-18b5-4343-ac5c-9ba974c3f564" />
+
+Результат после донастройки:
 
 <img width="1094" height="406" alt="image" src="https://github.com/user-attachments/assets/20295b3b-2133-4d89-bba1-222f087b2f22" />
 
