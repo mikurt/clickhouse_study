@@ -89,7 +89,7 @@
         </case>
     </compression>
 ```
-### users.d/x_users.xml
+### users.d/default_config.xml
 
 - Максимум потоков по числу ядер:
 ```
