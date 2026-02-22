@@ -3,7 +3,7 @@
 <img width="617" height="361" alt="image" src="https://github.com/user-attachments/assets/51d1ce1b-21ba-4ff0-8d4a-6e0d444e0504" />
 
 2. Разработайте таблицу для бизнес-кейса "Меню ресторана" с минимум пятью полями. Наполните таблицу данными, используя модификаторы (например, Nullable, LowCardinality), где это необходимо. Не забудьте добавить комментарии к полям.
-<img width="772" height="402" alt="image" src="https://github.com/user-attachments/assets/0acb8751-0316-4ac4-bc0f-586bd9a9cdea" />
+<img width="922" height="421" alt="image" src="https://github.com/user-attachments/assets/358fc634-824a-4d0c-9687-a03f24c610fe" />
 
 3. Протестируйте выполнение операций CRUD на созданной таблице.
 4. Добавьте несколько новых полей в таблицу и удалите два-три существующих.
