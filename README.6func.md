@@ -41,7 +41,7 @@
 
 <img width="958" height="425" alt="image" src="https://github.com/user-attachments/assets/0f4b0ce5-b0c3-43d6-b78c-0a17cc256821" />
 
--User-Defined Functions (UDFs)
+- User-Defined Functions (UDFs)
   - Создайте простую UDF для расчета общей стоимости транзакции.
   - Используйте созданную UDF для расчета общей цены для каждой транзакции.
 
