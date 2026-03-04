@@ -51,3 +51,98 @@
   - Примените UDF для категоризации каждой транзакции.
 
 <img width="865" height="428" alt="image" src="https://github.com/user-attachments/assets/15d4d961-59b2-4e1c-9f5d-6a76ba713352" />
+<!--
+# Вариант 2
+
+- Настройка среды для EUDF
+  - Установка необходимого программного обеспечения.
+ 
+<img width="617" height="90" alt="image" src="https://github.com/user-attachments/assets/f9856652-f444-4eaa-9d25-39d1e08adbfc" />
+
+
+  - Настройте ClickHouse для EUDF. Убедитесь, что ClickHouse настроен на разрешение EUDF. Измените конфигурационный файл ClickHouse (обычно находится по адресу `/etc/clickhouse-server/config.xml`), чтобы включить следующие настройки:
+
+   <clickhouse>
+       <user_defined_executable_functions_config>
+           <allow_functions>true</allow_functions>
+           <execution_path>/path/to/your/udf/script</execution_path>
+       </user_defined_executable_functions_config>
+   </clickhouse>
+
+<img width="822" height="145" alt="image" src="https://github.com/user-attachments/assets/3f0c0d85-8ea9-4310-8d33-3962c76224ed" />
+
+
+  - Создание каталога для сценариев EUDF
+
+   mkdir /path/to/your/udf
+
+   <img width="1411" height="121" alt="image" src="https://github.com/user-attachments/assets/6cc5960b-86dd-4453-91dc-0f267127d887" />
+
+
+- Создание и применение EUDF
+  - Создайте простой скрипт Python UDF. Напишите сценарий Python для расчета общей цены транзакции. Сохраните этот скрипт под именем `total_price.py` в вашей директории EUDF:
+
+   import sys
+   import json
+
+   def total_price(quantity, price):
+       return quantity * price
+
+   if __name__ == "__main__":
+       data = json.load(sys.stdin)
+       quantity = data['quantity']
+       price = data['price']
+       print(total_price(quantity, price))
+
+<img width="604" height="77" alt="image" src="https://github.com/user-attachments/assets/6efd7732-45ba-44a6-821f-7caf6ec323d6" />
+
+  - Применение EUDF в ClickHouse. Используйте следующую команду SQL для регистрации EUDF:
+
+   CREATE FUNCTION total_price AS 
+   '/path/to/your/udf/total_price.py' 
+   RETURNS Float32 
+   EXECUTE ON HOST;
+
+Использование EUDF:
+Рассчитайте общую цену для каждой транзакции (используя `total_price`):
+
+   SELECT 
+       transaction_id, 
+       total_price(quantity, price) AS total_price 
+   FROM transactions 
+   LIMIT 10;
+
+Создайте более сложный Python UDF скрипт. Напишите Python-скрипт для классификации транзакций на 'High Value' и 'Low Value' на основе порогового значения. Сохраните этот скрипт под именем `transaction_category.py`:
+
+   import sys
+   import json
+
+   def transaction_category(total_price, threshold=100):
+       if total_price > threshold:
+           return 'High Value'
+       else:
+           return 'Low Value'
+
+   if __name__ == "__main__":
+       data = json.load(sys.stdin)
+       total_price = data['total_price']
+       threshold = data.get('threshold', 100)
+       print(transaction_category(total_price, threshold))
+
+Примените новый EUDF в ClickHouse:
+
+   CREATE FUNCTION transaction_category AS 
+   '/path/to/your/udf/transaction_category.py' 
+   RETURNS String 
+   EXECUTE ON HOST;
+
+ Категоризируйте каждую транзакцию, используя `transaction_category`:
+
+   WITH (quantity * price) AS total_price
+   SELECT 
+       transaction_id, 
+       total_price, 
+       transaction_category(total_price) AS category 
+   FROM transactions 
+   LIMIT 10;
+-->
