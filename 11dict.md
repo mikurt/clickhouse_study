@@ -24,3 +24,5 @@ expense UInt64.
 - сортировку по email.
 
 <img width="923" height="780" alt="image" src="https://github.com/user-attachments/assets/d688c310-c838-4358-b5b5-d2613a62495d" />
+
+https://github.com/mikurt/clickhouse_study/blob/main/expenses_202603132322.csv
