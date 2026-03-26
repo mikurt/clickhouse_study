@@ -18,11 +18,15 @@ getMacro(‘replica’),
 FROM remote(’разделенный запятыми список реплик’,system.parts)
 FORMAT JSONEachRow;
 ```
+
 <img width="1273" height="609" alt="image" src="https://github.com/user-attachments/assets/e09b390e-01fa-4f8e-a545-e3946dfa1cee" />
+
+
 
 ```
 SELECT * FROM system.replicas FORMAT JSONEachRow;
 ```
+<img width="1327" height="382" alt="image" src="https://github.com/user-attachments/assets/56360e90-aa63-4399-aba4-3fcbb5d35099" />
 
 ## 5. Добавьте или выберите колонку с типом Date в таблице, добавьте TTL на таблицу «хранить последние 7 дней».
 На проверку отправьте результат запроса «SHOW CREATE TABLE таблица»
