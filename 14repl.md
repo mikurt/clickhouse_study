@@ -21,7 +21,7 @@ FORMAT JSONEachRow;
 
 <img width="1273" height="609" alt="image" src="https://github.com/user-attachments/assets/e09b390e-01fa-4f8e-a545-e3946dfa1cee" />
 
-
+https://github.com/mikurt/clickhouse_study/blob/e6a091486513d4ce3cff8d5ec62fa7b8bfe63bb8/14/parts.result.ndjson
 
 ```
 SELECT * FROM system.replicas FORMAT JSONEachRow;
