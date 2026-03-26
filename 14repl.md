@@ -8,6 +8,8 @@
 
 ## 3. Конвертируйте таблицу в реплицируемую, используя макрос replica.
 
+<img width="841" height="761" alt="image" src="https://github.com/user-attachments/assets/1779996c-24a6-4c73-ab46-5fd1d7ce7098" />
+
 ## 4. Выполните запросы и отдайте результаты как 2 файла:
 ```
 SELECT
@@ -16,6 +18,7 @@ getMacro(‘replica’),
 FROM remote(’разделенный запятыми список реплик’,system.parts)
 FORMAT JSONEachRow;
 ```
+<img width="1273" height="609" alt="image" src="https://github.com/user-attachments/assets/e09b390e-01fa-4f8e-a545-e3946dfa1cee" />
 
 ```
 SELECT * FROM system.replicas FORMAT JSONEachRow;
