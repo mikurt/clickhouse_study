@@ -1,0 +1,241 @@
+<clickhouse>
+    <remote_servers>
+        <!-- Test only shard config for testing distributed storage -->
+        <cl_3sh>
+            <!-- Inter-server per-cluster secret for Distributed queries
+                 default: no secret (no authentication will be performed)
+
+                 If set, then Distributed queries will be validated on shards, so at least:
+                 - such cluster should exist on the shard,
+                 - such cluster should have the same secret.
+
+                 And also (and which is more important), the initial_user will
+                 be used as current user for the query.
+
+                 Right now the protocol is pretty simple, and it only takes into account:
+                 - cluster name
+                 - query
+
+                 Also, it will be nice if the following will be implemented:
+                 - source hostname (see interserver_http_host), but then it will depend on DNS,
+                   it can use IP address instead, but then you need to get correct on the initiator node.
+                 - target hostname / ip address (same notes as for source hostname)
+                 - time-based security tokens
+            -->
+            <!-- <secret></secret> -->
+
+            <shard>
+                <!-- Optional. Whether to write data to just one of the replicas. Default: false (write data to all replicas). -->
+                <!-- <internal_replication>false</internal_replication> -->
+                <!-- Optional. Shard weight when writing data. Default: 1. -->
+                <!-- <weight>1</weight> -->
+		<name>shard_01</name>
+                <replica>
+                    <host>10.130.0.18</host>
+                    <port>9000</port>
+		    <user>default</user>
+		    <password>chtmyu</password>
+                    <!-- Optional. Priority of the replica for load_balancing. Default: 1 (less value has more priority). -->
+                    <!-- <priority>1</priority> -->
+                    <!-- Use SSL? Default: no -->
+                    <!-- <secure>0</secure> -->
+                    <!-- Optional. Bind to specific host before connecting to use a specific network. -->
+                    <!-- <bind_host>10.0.0.1</bind_host> -->
+                </replica>
+                <!-- <replica>
+                </replica> -->
+
+            </shard>
+            <shard>
+                <!-- Optional. Whether to write data to just one of the replicas. Default: false (write data to all replicas). -->
+                <!-- <internal_replication>false</internal_replication> -->
+                <!-- Optional. Shard weight when writing data. Default: 1. -->
+                <!-- <weight>1</weight> -->
+		<name>shard_02</name>
+                <replica>
+                    <host>10.130.0.29</host>
+                    <port>9000</port>
+		    <user>default</user>
+		    <password>chtmyu</password>
+                    <!-- Optional. Priority of the replica for load_balancing. Default: 1 (less value has more priority). -->
+                    <!-- <priority>1</priority> -->
+                    <!-- Use SSL? Default: no -->
+                    <!-- <secure>0</secure> -->
+                    <!-- Optional. Bind to specific host before connecting to use a specific network. -->
+                    <!-- <bind_host>10.0.0.1</bind_host> -->
+                </replica>
+                <!-- <replica>
+                </replica> -->
+
+            </shard>
+            <shard>
+                <!-- Optional. Whether to write data to just one of the replicas. Default: false (write data to all replicas). -->
+                <!-- <internal_replication>false</internal_replication> -->
+                <!-- Optional. Shard weight when writing data. Default: 1. -->
+                <!-- <weight>1</weight> -->
+		<name>shard_03</name>
+                <replica>
+                    <host>10.130.0.9</host>
+                    <port>9000</port>
+		    <user>default</user>
+		    <password>chtmyu</password>
+                    <!-- Optional. Priority of the replica for load_balancing. Default: 1 (less value has more priority). -->
+                    <!-- <priority>1</priority> -->
+                    <!-- Use SSL? Default: no -->
+                    <!-- <secure>0</secure> -->
+                    <!-- Optional. Bind to specific host before connecting to use a specific network. -->
+                    <!-- <bind_host>10.0.0.1</bind_host> -->
+                </replica>
+                <!-- <replica>
+                </replica> -->
+
+            </shard>
+        </cl_3sh>
+        <cl_lev1>
+            <!-- Inter-server per-cluster secret for Distributed queries
+                 default: no secret (no authentication will be performed)
+
+                 If set, then Distributed queries will be validated on shards, so at least:
+                 - such cluster should exist on the shard,
+                 - such cluster should have the same secret.
+
+                 And also (and which is more important), the initial_user will
+                 be used as current user for the query.
+
+                 Right now the protocol is pretty simple, and it only takes into account:
+                 - cluster name
+                 - query
+
+                 Also, it will be nice if the following will be implemented:
+                 - source hostname (see interserver_http_host), but then it will depend on DNS,
+                   it can use IP address instead, but then you need to get correct on the initiator node.
+                 - target hostname / ip address (same notes as for source hostname)
+                 - time-based security tokens
+            -->
+            <!-- <secret></secret> -->
+
+            <shard>
+                <!-- Optional. Whether to write data to just one of the replicas. Default: false (write data to all replicas). -->
+                <!-- <internal_replication>false</internal_replication> -->
+                <!-- Optional. Shard weight when writing data. Default: 1. -->
+                <weight>1</weight>
+		<name>shard_01</name>
+                <replica>
+                    <host>10.130.0.18</host>
+                    <port>9000</port>
+		    <user>default</user>
+		    <password>chtmyu</password>
+                    <!-- Optional. Priority of the replica for load_balancing. Default: 1 (less value has more priority). -->
+                    <!-- <priority>1</priority> -->
+                    <!-- Use SSL? Default: no -->
+                    <!-- <secure>0</secure> -->
+                    <!-- Optional. Bind to specific host before connecting to use a specific network. -->
+                    <!-- <bind_host>10.0.0.1</bind_host> -->
+                </replica>
+                <!-- <replica>
+                </replica> -->
+
+            </shard>
+            <shard>
+                <!-- Optional. Whether to write data to just one of the replicas. Default: false (write data to all replicas). -->
+                <!-- <internal_replication>false</internal_replication> -->
+                <!-- Optional. Shard weight when writing data. Default: 1. -->
+                <weight>2</weight>
+		<name>shard_02</name>
+                <replica>
+                    <host>10.130.0.29</host>
+                    <port>9000</port>
+		    <user>default</user>
+		    <password>chtmyu</password>
+                    <!-- Optional. Priority of the replica for load_balancing. Default: 1 (less value has more priority). -->
+                    <!-- <priority>1</priority> -->
+                    <!-- Use SSL? Default: no -->
+                    <!-- <secure>0</secure> -->
+                    <!-- Optional. Bind to specific host before connecting to use a specific network. -->
+                    <!-- <bind_host>10.0.0.1</bind_host> -->
+                </replica>
+                <!-- <replica>
+                </replica> -->
+
+            </shard>
+        </cl_lev1>
+        <cl_lev2>
+            <!-- Inter-server per-cluster secret for Distributed queries
+                 default: no secret (no authentication will be performed)
+
+                 If set, then Distributed queries will be validated on shards, so at least:
+                 - such cluster should exist on the shard,
+                 - such cluster should have the same secret.
+
+                 And also (and which is more important), the initial_user will
+                 be used as current user for the query.
+
+                 Right now the protocol is pretty simple, and it only takes into account:
+                 - cluster name
+                 - query
+
+                 Also, it will be nice if the following will be implemented:
+                 - source hostname (see interserver_http_host), but then it will depend on DNS,
+                   it can use IP address instead, but then you need to get correct on the initiator node.
+                 - target hostname / ip address (same notes as for source hostname)
+                 - time-based security tokens
+            -->
+            <!-- <secret></secret> -->
+
+            <shard>
+                <!-- Optional. Whether to write data to just one of the replicas. Default: false (write data to all replicas). -->
+                <!-- <internal_replication>false</internal_replication> -->
+                <!-- Optional. Shard weight when writing data. Default: 1. -->
+                <!-- <weight>1</weight> -->
+		<name>shard_02</name>
+                <replica>
+                    <host>10.130.0.29</host>
+                    <port>9000</port>
+		    <user>default</user>
+		    <password>chtmyu</password>
+                    <!-- Optional. Priority of the replica for load_balancing. Default: 1 (less value has more priority). -->
+                    <!-- <priority>1</priority> -->
+                    <!-- Use SSL? Default: no -->
+                    <!-- <secure>0</secure> -->
+                    <!-- Optional. Bind to specific host before connecting to use a specific network. -->
+                    <!-- <bind_host>10.0.0.1</bind_host> -->
+                </replica>
+                <!-- <replica>
+                </replica> -->
+
+            </shard>
+            <shard>
+                <!-- Optional. Whether to write data to just one of the replicas. Default: false (write data to all replicas). -->
+                <!-- <internal_replication>false</internal_replication> -->
+                <!-- Optional. Shard weight when writing data. Default: 1. -->
+                <!-- <weight>1</weight> -->
+		<name>shard_03</name>
+                <replica>
+                    <host>10.130.0.9</host>
+                    <port>9000</port>
+		    <user>default</user>
+		    <password>chtmyu</password>
+                    <!-- Optional. Priority of the replica for load_balancing. Default: 1 (less value has more priority). -->
+                    <!-- <priority>1</priority> -->
+                    <!-- Use SSL? Default: no -->
+                    <!-- <secure>0</secure> -->
+                    <!-- Optional. Bind to specific host before connecting to use a specific network. -->
+                    <!-- <bind_host>10.0.0.1</bind_host> -->
+                </replica>
+                <!-- <replica>
+                </replica> -->
+
+            </shard>
+        </cl_lev2>
+    </remote_servers>
+    <!-- Substitutions for parameters of replicated tables.
+          Optional. If you don't use replicated tables, you could omit that.
+
+         See https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/replication/#creating-replicated-tables
+      -->
+    <macros>
+        <shard>shard_01</shard>
+        <replica>main</replica>
+    </macros>
+
+</clickhouse>
