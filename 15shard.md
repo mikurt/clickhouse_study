@@ -9,7 +9,7 @@
 - 3 шарда cl_3sh
 - двухуровневая: 1-й уровень cl_lev1, 2-й уровень - cl_lev2
 
-См. 
+См. https://github.com/mikurt/clickhouse_study/blob/fbc650e459ff58997bbb1e2887834ccf8f77cc17/15/remote.xml
 
 ## Создать DISTRIBUTED-таблицу на каждую из топологий. 
 
