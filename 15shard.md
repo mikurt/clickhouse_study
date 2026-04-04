@@ -13,11 +13,6 @@
 
 ## Создать DISTRIBUTED-таблицу на каждую из топологий. 
 
-Можно использовать системную таблицу system.one, содержащую одну колонку dummy типа UInt8, в качестве локальной таблицы.
-
-или 5) предоставить вывод запроса SELECT *,hostName(),_shard_num from distributed-table для каждой distributed-таблицы, можно добавить group by и limit по вкусу 
-если тестовых данных много.
-
 ### Топология "3 шарда"
 
 <img width="843" height="607" alt="image" src="https://github.com/user-attachments/assets/09df62eb-2805-4171-9f73-4a5b2dc6a779" />
